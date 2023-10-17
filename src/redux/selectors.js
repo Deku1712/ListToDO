@@ -1,11 +1,20 @@
-// import { useSelector } from "react-redux";
-
-// export function GetTodos() {
-//   const allId = useSelector((state) => state.todos.allId);
-
-//   const todos = allId.map((id) => {
-//     return useSelector((state) => state.todos.byIds[id]);
-//   });
-
-//   return { todos };
-// }
+// Define your selector function
+export const selector = (todos, filter) => {
+    switch(filter){
+        case 'ALL' : {
+            return todos;
+        }
+        case 'COMPLETED':{
+            return todos.filter((todo)=> todo.detail.completed);
+        }
+        case 'INCOMPLETED': {
+            return todos.filter((todo)=> !todo.detail.completed)
+        }
+        default:
+            return todos;
+    }
+  };
+  
+  // Use the selector in your component
+  
+  

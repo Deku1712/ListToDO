@@ -7,12 +7,13 @@ export const Todo = (props) => {
     const handletoggle = () => {
         dispatch(toggleTodo(props.id))
     }
-    return ( 
-        <div>
-            {todo.completed  ?  "😤" : "😵‍💫"}
-            <span onClick={handletoggle}>
-                {todo.content} 
-            </span>
-        </div>
+    return (
+
+        <tr onClick={handletoggle} className=" " >
+            <th scope="row">{props.id}</th>
+            <td>{todo.content}</td>
+            <td>{todo.completed ? "Completed✅" : "Incompleted⚠️"}</td>
+        </tr>
+
     )
 } 
